@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ book.title }}</title>
+</head>
+
+<body>
+    <h1>{{ book.title }}</h1>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p>{{ book.description }}</p>
+    <p><strong>Published:</strong> {{ book.published_date }}</p>
+
+    <h2>Reviews</h2>
+    {% for review in reviews %}
+    <p><strong>{{ review.user.username }}</strong> rated it {{ review.rating }}/5</p>
+    <p>{{ review.comment }}</p>
+    <hr>
+    {% empty %}
+    <p>No reviews yet!</p>
+    {% endfor %}
+
+    <h3>Add a Review</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <a href="/">Back to all books</a>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{% extends 'books/base.html' %}
+{% load form_tags %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Add a Book</h2>
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
+            {{ form.title|add_class:"form-control" }}
+        </div>
+
+        <div class="mb-3">
+            <label for="{{ form.author.id_for_label }}" class="form-label">Author</label>
+            {{ form.author|add_class:"form-control" }}
+        </div>
+
+        <button type="submit" class="btn btn-success">Add Book</button>
+    </form>
+</div>
+{% endblock %}
