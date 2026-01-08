@@ -80,7 +80,7 @@ src/
 ```
 
 ### **Backend (Django)**
-
+```
 
 bookstore/
  ├── settings.py            # Django settings
